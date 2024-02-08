@@ -1,67 +1,93 @@
 "use client";
-import React from "react";
-import { useForm } from "@formspree/react";
-//Formspree account ansariafroz720@gmail.coms
+import React, { useState } from "react";
+import { send } from "./SendMail";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
-  const [state, handleSubmit] = useForm("mvoekyay");
-  if (state.succeeded) {
-    alert("Thanks For Submitting");
-  }
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const emailSent = await send(name, email, phone, message);
+    if (emailSent) {
+      setSubmitting(false);
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      Swal.fire({
+        title: "Success!",
+        text: "Form Submitted Successfully",
+        icon: "success",
+      });
+    } else {
+      setSubmitting(false);
+      Swal.fire({
+        title: "Failed!",
+        text: "Form Submission Failed!",
+        icon: "error",
+      });
+    }
+  };
 
   return (
-    <div class="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
-      <form onSubmit={handleSubmit}>
-        <div class="mb-6">
+    <div className="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
+      <form onSubmit={handleFormSubmit}>
+        <div className="mb-6">
           <input
             type="text"
             required
             name="name"
-            // value={name}
-            // onChange={(e) => setName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Your Name"
-            class=" border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+            className="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
           />
         </div>
-        <div class="mb-6">
+        <div className="mb-6">
           <input
             type="email"
             required
             name="email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Your Email"
-            class="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+            className="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
           />
         </div>
-        <div class="mb-6">
+        <div className="mb-6">
           <input
             type="number"
             required
             name="phone"
-            // value={phone}
+            value={phone}
             placeholder="Your Contact Number"
-            // onChange={(e) => setPhone(e.target.value)}
-            class="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
+            onChange={(e) => setPhone(e.target.value)}
+            className="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none"
           />
         </div>
-        <div class="mb-6">
+        <div className="mb-6">
           <textarea
             rows="6"
             required
             name="message"
-            // value={message}
-            // onChange={(e) => setMessage(e.target.value)}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             placeholder="Your Message"
-            class="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none"
+            className="border-gray-500 dark:border-dark-3 dark:text-dark-6 dark:bg-dark text-body-color focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none"
           ></textarea>
         </div>
         <div>
           <button
             type="submit"
-            class="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
+            className="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
           >
-            Submit
+            {submitting ? <span>Submitting..</span> : <span>Submit</span>}
           </button>
         </div>
       </form>
