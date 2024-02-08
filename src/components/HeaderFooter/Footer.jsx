@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="text-base md:text-xl font-medium text-gray-800">
-              Usefull Links
+              Useful Links
             </h2>
             <ul className="text-[0.9rem] space-y-2 mt-2 text-gray-700">
               <li>
@@ -99,15 +99,15 @@ const Footer = () => {
         </div>
       </section>
       {/* COPYRIGHT TEXT */}
-      <section className="text-center p-3 flex items-center justify-between px-10">
-        <p className="text-sm text-gray-800">
+      <section className="text-center p-3 lg:flex items-center justify-between space-y-1 px-10">
+        <p className="text-center text-sm text-gray-800">
           &copy; {new Date().getFullYear()}{" "}
           <Link href={"/"} className="hover:text-aqua">
             MCM Phoenix
           </Link>
           . All Rights Reserved
         </p>
-        <p className="text-sm text-gray-800">
+        <p className="text-center text-sm text-gray-800">
           Crafted By{" "}
           <a
             href={"https://gsmash.com/"}

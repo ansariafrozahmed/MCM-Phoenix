@@ -1,13 +1,17 @@
 "use client";
 import React from "react";
-
+import { useForm } from "@formspree/react";
 //Formspree account ansariafroz720@gmail.coms
 
 const ContactForm = () => {
+  const [state, handleSubmit] = useForm("mvoekyay");
+  if (state.succeeded) {
+    alert("Thanks For Submitting");
+  }
 
   return (
     <div class="relative p-8 bg-white rounded-lg shadow-lg dark:bg-dark-2 sm:p-12">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div class="mb-6">
           <input
             type="text"
