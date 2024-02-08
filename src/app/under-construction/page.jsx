@@ -3,6 +3,7 @@ import CommonBanner from "@/components/BannersComp/CommonBanner";
 import UnderNew from "@/components/UnderConstruction/UnderNew";
 import UnderOld from "@/components/UnderConstruction/UnderOld";
 import UnderProgress from "@/components/UnderConstruction/UnderProgress";
+import VideoModal from "@/components/VideoModal";
 import TwodPlan from "@/components/plan/TwodPlan";
 import Link from "next/link";
 import React from "react";
@@ -60,12 +61,13 @@ const UnderConstruction = () => {
             </Link>
           </div>
         </div>
-        <div className="w-full lg:w-[40%]">
+        <div className="w-full lg:w-[40%] relative">
           <img
             src="/musalla.webp"
             alt="Old Masjid Image"
             className="w-full h-full object-contain"
           />
+          <VideoModal videoid={"2gAVcirB5-4"} />
         </div>
       </div>
     </div>

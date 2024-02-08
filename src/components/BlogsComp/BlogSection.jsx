@@ -43,12 +43,12 @@ const BlogSection = () => {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h5 class="mb-2 text-lg antialiased font-medium line-clamp-2 leading-snug tracking-normal text-blue-gray-900">
+              <h5 class="mb-2 text-lg antialiased font-medium line-clamp-1 leading-snug tracking-normal text-blue-gray-900">
                 {item.title.rendered}
               </h5>
               <div
                 className="line-clamp-4 text-sm"
-                dangerouslySetInnerHTML={{ __html: item.content.rendered }}
+                dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
               ></div>
               <span className="text-gray-700 text-xs mt-1">
                 Published on {new Date(item.date).toLocaleDateString()}

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "../Slider/Slider";
 import Link from "next/link";
+import VideoModal from "../VideoModal";
 
 // const fetchUnderConstructionData = async () => {
 //   const response = await fetch(
@@ -68,12 +69,13 @@ const UnderProgress = () => {
             </Link>
           </div>
         </div>
-        <div className="w-full lg:w-[40%]">
+        <div className="w-full lg:w-[40%] relative">
           <img
             src="/under.webp"
             alt="Old Masjid Image"
             className="w-full h-full object-contain"
           />
+          <VideoModal videoid={"HShj1Ltd36E"} />
         </div>
       </div>
       <Slider data={data} />

@@ -63,7 +63,7 @@ const UnderConstructionHome = () => {
 
   return (
     <section className="px-5 py-14 md:p-10 lg:p-20">
-      <h2 className="text-4xl pb-10 md:text-4xl lg:text-5xl uppercase text-left lg:text-center font-semibold text-gray-800">
+      <h2 className="text-4xl pb-10 md:text-4xl lg:text-5xl uppercase text-left lg:text-right font-semibold text-gray-800">
         Under <span className="text-aqua">Construction</span>
       </h2>
       <div className="flex flex-col lg:flex-row gap-5 lg:gap-20 w-full">
