@@ -9,13 +9,24 @@ const UnderConstruction = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchGalleryData = async () => {
-      const response = await fetch("/api/underConstructionData");
-      const result = await response.json();
-      setData(result);
-      setLoading(false);
+    const fetchOldGallery = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=30"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setData(result);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
     };
-    fetchGalleryData();
+
+    fetchOldGallery();
   }, []);
 
   return (

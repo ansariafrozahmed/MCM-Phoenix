@@ -1,27 +1,66 @@
-// "use client";
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import ImageSlideshow from "./ImageSlideshow";
 import { Progress } from "antd";
 
-const fetchUnderConstructionData = async () => {
-  const response = await fetch(
-    "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
-  );
-  const result = await response.json();
-  return result;
-};
+// const fetchUnderConstructionData = async () => {
+//   const response = await fetch(
+//     "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-const fetchProgressData = async () => {
-  const response = await fetch(
-    "https://demo-web.live/mcm/wp-json/wp/v2/facility?acf_format=standard&_fields=acf,title"
-  );
-  const result = await response.json();
-  return result;
-};
+// const fetchProgressData = async () => {
+//   const response = await fetch(
+//     "https://demo-web.live/mcm/wp-json/wp/v2/facility?acf_format=standard&_fields=acf,title"
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-const UnderConstructionHome = async () => {
-  const data = await fetchUnderConstructionData();
-  const progressData = await fetchProgressData();
+const UnderConstructionHome = () => {
+  // const data = await fetchUnderConstructionData();
+  // const progressData = await fetchProgressData();
+
+  const [underConstruction, setUnderConstruction] = useState(null);
+  const [progressData, setProgressData] = useState(null);
+
+  useEffect(() => {
+    const fetchUnderConstructionData = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=20"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setUnderConstruction(result);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+    const fetchProgressData = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/facility?per_page=10"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setProgressData(result);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+    fetchUnderConstructionData();
+    fetchProgressData();
+  }, []);
+
   return (
     <section className="px-5 py-14 md:p-10 lg:p-20">
       <h2 className="text-4xl pb-10 md:text-4xl lg:text-5xl uppercase text-left lg:text-center font-semibold text-gray-800">
@@ -29,7 +68,7 @@ const UnderConstructionHome = async () => {
       </h2>
       <div className="flex flex-col lg:flex-row gap-5 lg:gap-20 w-full">
         <div className="w-full lg:w-1/2 h-full">
-          <ImageSlideshow data={data} />
+          <ImageSlideshow data={underConstruction} />
         </div>
         {/* ------------------- */}
         <div className="w-full lg:w-1/2">

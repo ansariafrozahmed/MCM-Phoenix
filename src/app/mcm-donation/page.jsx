@@ -1,21 +1,17 @@
-import BannerWithhadith from "@/components/BannersComp/BannerWithhadith";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
 import Slider from "@/components/Slider/Slider";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const fetchGalleryData = async () => {
-  const response = await fetch(
-    "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title"
-  );
-  const result = await response.json();
-  return result;
-};
+// const fetchGalleryData = async () => {
+//   const response = await fetch(
+//     "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title"
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-const MCMDonation = async () => {
-  const finalData = await fetchGalleryData();
-  // console.log(finalData);
+const MCMDonation = () => {
   const data = [
     {
       title: "Zakat",
@@ -47,7 +43,7 @@ const MCMDonation = async () => {
           <span className="text-aqua">New Planned Masjid</span>
         </h2>
       </div>
-      <Slider data={finalData} />
+      <Slider />
       <div className="text-center">
         <Link href={"/about-us"}>
           <button class="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-medium capitalize rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">

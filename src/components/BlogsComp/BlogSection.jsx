@@ -2,15 +2,8 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-// const fetchBlogs = async () => {
-//   const response = await fetch("https://demo-web.live/mcm/wp-json/wp/v2/posts");
-//   const result = await response.json();
-//   return result;
-// };
-
 const BlogSection = () => {
   const [data, setData] = useState(null);
-
   useEffect(() => {
     const fetchLatestBlogs = async () => {
       try {
@@ -21,7 +14,7 @@ const BlogSection = () => {
           throw new Error("Failed to fetch stats");
         }
         const result = await res.json();
-        console.log(result, "RESULT");
+        // console.log(result, "RESULT");
         setData(result);
       } catch (error) {
         console.error("Error fetching stats:", error);
@@ -30,8 +23,7 @@ const BlogSection = () => {
 
     fetchLatestBlogs();
   }, []);
-  // const data = await fetchBlogs();
-  // console.log(data);
+
   return (
     <div className="p-5 md:p-10 lg:p-20">
       <h2 className="text-3xl  md:text-4xl lg:text-5xl uppercase text-center font-semibold text-gray-800">
