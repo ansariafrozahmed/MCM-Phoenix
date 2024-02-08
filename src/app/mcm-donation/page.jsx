@@ -1,7 +1,8 @@
+"use client";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
 import Slider from "@/components/Slider/Slider";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // const fetchGalleryData = async () => {
 //   const response = await fetch(
@@ -12,6 +13,29 @@ import React from "react";
 // };
 
 const MCMDonation = () => {
+  const [dataa, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNewGallery = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title&per_page=30"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setData(result);
+        // setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchNewGallery();
+  }, []);
   const data = [
     {
       title: "Zakat",
@@ -43,7 +67,7 @@ const MCMDonation = () => {
           <span className="text-aqua">New Planned Masjid</span>
         </h2>
       </div>
-      <Slider />
+      <Slider data={dataa} />
       <div className="text-center">
         <Link href={"/about-us"}>
           <button class="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-medium capitalize rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">

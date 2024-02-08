@@ -13,30 +13,30 @@ import { Pagination, Navigation } from "swiper/modules";
 import { Image } from "antd";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const Slider = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const Slider = ({ data }) => {
+  // const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchOldGallery = async () => {
-      try {
-        const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title&per_page=30"
-        );
-        if (!res.ok) {
-          throw new Error("Failed to fetch stats");
-        }
-        const result = await res.json();
-        // console.log(result, "RESULT");
-        setData(result);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching stats:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchOldGallery = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title&per_page=30"
+  //       );
+  //       if (!res.ok) {
+  //         throw new Error("Failed to fetch stats");
+  //       }
+  //       const result = await res.json();
+  //       // console.log(result, "RESULT");
+  //       setData(result);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching stats:", error);
+  //     }
+  //   };
 
-    fetchOldGallery();
-  }, []);
+  //   fetchOldGallery();
+  // }, []);
   return (
     <div className="p-5 md:p-10 lg:px-10 lg:py-2">
       <Swiper
@@ -89,8 +89,8 @@ const Slider = () => {
           </SwiperSlide>
         ))}
 
-        <div className="swiper-button-next !text-black"></div>
-        <div className="swiper-button-prev !text-black"></div>
+        <div className="swiper-button-next !text-aqua"></div>
+        <div className="swiper-button-prev !text-aqua"></div>
       </Swiper>
     </div>
   );

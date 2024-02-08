@@ -38,17 +38,18 @@ const UnderConstruction = () => {
       <div className="px-5 py-10 md:p-10 lg:py-20 lg:px-20 w-full  lg:flex gap-10 ">
         <div className="w-full lg:w-[60%] pb-5 space-y-3 my-auto">
           <h2 className="text-4xl lg:text-5xl uppercase text-left font-semibold text-gray-800">
-            Help Us Build Hope:
+            Help Us Build Hope
             <span className="text-aqua"> Support Our MCM</span>
           </h2>
           <div className="text-[0.9rem] space-y-2 md:space-y-3 text-justify text-gray-800">
             <p>
               Whoever builds a mosque for the sake of Allah, like a sparrow’s
               nest for Allah or even smaller, Allah will build for him a house
-              in Paradise.” 
+              in Paradise.”
               <br />
-              <span className="text-aqua">(Sunan Ibn Majah, Kitab al-Masajid wal Jamaah,
-              Hadith 738)</span>
+              <span className="text-aqua">
+                (Sunan Ibn Majah, Kitab al-Masajid wal Jamaah, Hadith 738)
+              </span>
             </p>
           </div>
           <div className="py-2">

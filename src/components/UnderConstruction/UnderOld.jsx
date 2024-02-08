@@ -1,17 +1,41 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "../Slider/Slider";
 
-const fetchOldMasjidData = async () => {
-  const response = await fetch(
-    "https://demo-web.live/mcm/wp-json/wp/v2/old-masjid?acf_format=standard&_fields=acf,title"
-  );
-  const result = await response.json();
-  return result;
-};
+// const fetchOldMasjidData = async () => {
+//   const response = await fetch(
+//     "https://demo-web.live/mcm/wp-json/wp/v2/old-masjid?acf_format=standard&_fields=acf,title"
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-const UnderOld = async () => {
-  const data = await fetchOldMasjidData();
+const UnderOld = () => {
+  const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOldGallery = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/old-masjid?acf_format=standard&_fields=acf,title&per_page=30"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setData(result);
+        // setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchOldGallery();
+  }, []);
+  // const data = await fetchOldMasjidData();
 
   return (
     <div>

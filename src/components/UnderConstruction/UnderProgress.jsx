@@ -1,17 +1,41 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Slider from "../Slider/Slider";
 import Link from "next/link";
 
-const fetchUnderConstructionData = async () => {
-  const response = await fetch(
-    "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
-  );
-  const result = await response.json();
-  return result;
-};
+// const fetchUnderConstructionData = async () => {
+//   const response = await fetch(
+//     "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
+//   );
+//   const result = await response.json();
+//   return result;
+// };
 
-const UnderProgress = async () => {
-  const data = await fetchUnderConstructionData();
+const UnderProgress = () => {
+  const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUnderConstructionGallery = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=30"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setData(result);
+        // setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchUnderConstructionGallery();
+  }, []);
+  // const data = await fetchUnderConstructionData();
   return (
     <div>
       <div className="px-5 py-10 md:p-10 lg:py-20 lg:px-20 w-full  lg:flex gap-10 ">
