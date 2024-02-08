@@ -7,7 +7,9 @@ const LatestBlogs = () => {
 
   useEffect(() => {
     const fetchGalleryData = async () => {
-      const response = await fetch("/api/latestBlog");
+      const response = await fetch(
+        "https://demo-web.live/mcm/wp-json/wp/v2/posts"
+      );
       const result = await response.json();
       setLatestBlog(result);
       // setLoading(false);
@@ -37,7 +39,7 @@ const LatestBlogs = () => {
               </h2>
               <div
                 className="text-xs text-gray-800 line-clamp-2 font-medium"
-                dangerouslySetInnerHTML={{ __html: item.content.rendered }}
+                dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
               >
                 {/* {item.content.rendered}
                 Description */}

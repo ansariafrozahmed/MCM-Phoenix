@@ -63,20 +63,20 @@ const UnderConstructionHome = () => {
 
   return (
     <section className="px-5 py-14 md:p-10 lg:p-20">
-      <h2 className="text-4xl pb-10 md:text-4xl lg:text-5xl uppercase text-left lg:text-right font-semibold text-gray-800">
-        Under <span className="text-aqua">Construction</span>
-      </h2>
       <div className="flex flex-col lg:flex-row gap-5 lg:gap-20 w-full">
         <div className="w-full lg:w-1/2 h-full">
           <ImageSlideshow data={underConstruction} />
         </div>
         {/* ------------------- */}
         <div className="w-full lg:w-1/2">
-          <p className="mb-5 md:hidden text-sm text-gray-800 lg:text-base lg:block">
+          <h2 className="text-4xl pb-10 md:text-4xl lg:text-5xl uppercase text-left font-semibold text-gray-800">
+            Under <span className="text-aqua">Construction</span>
+          </h2>
+          {/* <p className="mb-5 md:hidden text-sm text-gray-800 lg:text-base lg:block">
             The construction of our new masjid is well underway, and each
             passing day brings us closer to realizing our vision for a modern,
             inclusive, and spiritually uplifting space.
-          </p>
+          </p> */}
           {progressData?.map((item, index) => (
             <div className="leading-none" key={index}>
               <h3 className="text-sm">{item?.title?.rendered}</h3>
