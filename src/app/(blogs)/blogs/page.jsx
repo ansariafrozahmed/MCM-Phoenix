@@ -1,15 +1,34 @@
+"use client";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
 import BlogCard from "@/components/BlogsComp/BlogCard";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-const fetchAllBlogs = async () => {
-  const response = await fetch("https://demo-web.live/mcm/wp-json/wp/v2/posts");
-  const result = await response.json();
-  return result;
-};
-const Blogs = async () => {
-  const data = await fetchAllBlogs();
+const Blogs = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchAllBlogs = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/posts"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setData(result);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchAllBlogs();
+  }, []);
   // console.log(data);
   return (
     <div>
@@ -20,9 +39,26 @@ const Blogs = async () => {
         }
       />
       <div className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {data?.map((item, index) => (
-          <BlogCard item={item} key={index} />
-        ))}
+        {loading ? (
+          <>
+            {Array(4)
+              .fill()
+              .map((_, index) => (
+                <div className="w-full" key={index}>
+                  <Skeleton className="h-48" />
+                  <Skeleton className="h-8" />
+                  <Skeleton count={4} />
+                  <Skeleton height={30} width={100} />
+                </div>
+              ))}
+          </>
+        ) : (
+          <>
+            {data?.map((item, index) => (
+              <BlogCard item={item} key={index} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
