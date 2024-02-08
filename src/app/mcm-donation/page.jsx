@@ -15,7 +15,7 @@ const fetchGalleryData = async () => {
 
 const MCMDonation = async () => {
   const finalData = await fetchGalleryData();
-  console.log(finalData);
+  // console.log(finalData);
   const data = [
     {
       title: "Zakat",
