@@ -1,14 +1,36 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const fetchBlogs = async () => {
-  const response = await fetch("https://demo-web.live/mcm/wp-json/wp/v2/posts");
-  const result = await response.json();
-  return result;
-};
+// const fetchBlogs = async () => {
+//   const response = await fetch("https://demo-web.live/mcm/wp-json/wp/v2/posts");
+//   const result = await response.json();
+//   return result;
+// };
 
-const BlogSection = async () => {
-  const data = await fetchBlogs();
+const BlogSection = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchLatestBlogs = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/posts"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        console.log(result, "RESULT");
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchLatestBlogs();
+  }, []);
+  // const data = await fetchBlogs();
   // console.log(data);
   return (
     <div className="p-5 md:p-10 lg:p-20">
@@ -16,7 +38,7 @@ const BlogSection = async () => {
         Our <span className="text-aqua">Blogs</span>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {data.slice(0, 3)?.map((item, index) => (
+        {data?.slice(0, 3)?.map((item, index) => (
           <div
             key={index}
             class="relative flex flex-col mt-6 border text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-full"
