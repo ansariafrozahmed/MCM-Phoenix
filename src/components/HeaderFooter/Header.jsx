@@ -18,6 +18,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import DonateUsButton from "../DonateUsButton";
 
 const donateItems = [
   {
@@ -135,7 +136,7 @@ export default function Header() {
 
   return (
     <Navbar
-      className="mx-auto max-w-full shadow-md bg-gray-100 rounded-none px-5 lg:px-12 py-4"
+      className="mx-auto max-w-full shadow-md bg-gray-100 rounded-none px-3 lg:px-12 py-4"
       style={{
         backgroundImage: 'url("/mcm-pattern.png")',
       }}
@@ -148,13 +149,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="">
-          <Link href={"/about-us"}>
-            <button class="px-5 md:px-8 py-2 md:py-3 bg-gradient-to-r from-aqua to-[#05774c] text-base md:text-xl text-white font-medium rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-              Donate Us
-            </button>
-          </Link>
-        </div>
+        <DonateUsButton text={"Donate Us"} />
         <IconButton
           variant="text"
           color="blue-gray"

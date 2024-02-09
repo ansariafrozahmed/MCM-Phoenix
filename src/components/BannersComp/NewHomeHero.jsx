@@ -1,10 +1,36 @@
 "use client";
 import { Carousel } from "@material-tailwind/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PrayerTable from "../PrayerTimingTable/PrayerTable";
 import Link from "next/link";
+import Skeleton from "react-loading-skeleton";
+import DonateUsButton from "../DonateUsButton";
 
 const NewHomeHero = () => {
+  const [banner, setBanner] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchbanner = async () => {
+      try {
+        const res = await fetch(
+          "https://demo-web.live/mcm/wp-json/wp/v2/home-page-slider?acf_format=standard&_fields=acf"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch stats");
+        }
+        const result = await res.json();
+        // console.log(result, "RESULT");
+        setBanner(result);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    fetchbanner();
+  }, []);
+
   return (
     <div className="relative w-full">
       <Carousel
@@ -28,21 +54,31 @@ const NewHomeHero = () => {
         )}
         className="relative h-[90svh] md:h-[60svh] lg:h-[88svh]"
       >
-        <img
-          src="/banner/1.webp"
-          alt="image 1"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="/banner/2.webp"
-          alt="image 2"
-          className="h-full w-full object-cover"
-        />
-        <img
-          src="/banner/3.webp"
-          alt="image 3"
-          className="h-full w-full object-cover"
-        />
+        {loading ? (
+          <>
+            {Array(3)
+              .fill()
+              .map((_, index) => (
+                <img
+                  key={index}
+                  src="/banner/homeBanner.webp"
+                  alt="MCM Phoenix Banner"
+                  className="h-full w-full object-cover"
+                />
+              ))}
+          </>
+        ) : (
+          <>
+            {banner?.map((item, index) => (
+              <img
+                key={index}
+                src={item?.acf?.image}
+                alt="MCM Phoenix Banner"
+                className="h-full w-full object-cover"
+              />
+            ))}
+          </>
+        )}
       </Carousel>
 
       <div className="absolute inset-0 bg-black/50"></div>
@@ -59,11 +95,7 @@ const NewHomeHero = () => {
             WE NEED YOUR HELP.
           </h2>
           <div className="py-1 text-center lg:text-left w-full">
-            <Link href={"/about-us"}>
-              <button class="px-5 md:px-8 py-2 md:py-3 bg-gradient-to-r from-aqua to-[#05774c] text-lg md:text-xl text-white font-medium rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                Donate Us
-              </button>
-            </Link>
+            <DonateUsButton text={"Donate Us"} />
           </div>
         </div>
       </div>

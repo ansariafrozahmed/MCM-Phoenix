@@ -1,5 +1,6 @@
 import BannerWithhadith from "@/components/BannersComp/BannerWithhadith";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
+import DonateUsButton from "@/components/DonateUsButton";
 import Calculator from "@/components/Zakaat/Calculator";
 import Link from "next/link";
 import React from "react";
@@ -22,7 +23,8 @@ const Zakat = () => {
             <p>
               "Charity does not decrease wealth, no one forgives another except
               that Allah increases his honor, and no one humbles himself for the
-              sake of Allah except that Allah raises his status." <span className="text-aqua">(Sahih Muslim)</span>
+              sake of Allah except that Allah raises his status."{" "}
+              <span className="text-aqua">(Sahih Muslim)</span>
             </p>
           </div>
           <div className="space-y-2">
@@ -33,15 +35,12 @@ const Zakat = () => {
               "Take, [O, Muhammad], from their wealth a charity by which you
               purify them and cause them increase, and invoke [ Allah 's
               blessings] upon them. Indeed, your invocations are reassurance for
-              them. And Allah is Hearing and Knowing." <span className="text-aqua">(Quran, 9:103)</span>
+              them. And Allah is Hearing and Knowing."{" "}
+              <span className="text-aqua">(Quran, 9:103)</span>
             </p>
           </div>
           <div className="">
-            <Link href={"/about-us"}>
-              <button className="px-5 md:px-8 py-2 md:py-3 bg-gradient-to-r from-aqua to-[#05774c] text-lg md:text-xl text-white font-medium rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                Donate Us
-              </button>
-            </Link>
+            <DonateUsButton text={"Donate Us"} />
           </div>
         </div>
         <div className="w-full lg:w-[40%]">

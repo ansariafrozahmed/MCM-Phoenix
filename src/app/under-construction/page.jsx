@@ -1,5 +1,6 @@
 import BannerWithhadith from "@/components/BannersComp/BannerWithhadith";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
+import DonateUsButton from "@/components/DonateUsButton";
 import UnderNew from "@/components/UnderConstruction/UnderNew";
 import UnderOld from "@/components/UnderConstruction/UnderOld";
 import UnderProgress from "@/components/UnderConstruction/UnderProgress";
@@ -53,12 +54,8 @@ const UnderConstruction = () => {
               </span>
             </p>
           </div>
-          <div className="py-2">
-            <Link href={"/"}>
-              <button class="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                Sponsor A Musalla For $2,000
-              </button>
-            </Link>
+          <div className="py-1 text-center lg:text-left w-full">
+            <DonateUsButton text={"Sponsor A Musalla For $2,000"} />
           </div>
         </div>
         <div className="w-full lg:w-[40%] relative">

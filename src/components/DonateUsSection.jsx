@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import DonateUsButton from "./DonateUsButton";
 
 const DonateUsSection = () => {
   return (
@@ -24,12 +25,8 @@ const DonateUsSection = () => {
           goods by night and by day, in secret and in public, have their reward
           with their Lord
         </p>
-        <div className="py-2">
-          <Link href={"/about-us"}>
-            <button className="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-              Donate Us
-            </button>
-          </Link>
+        <div className="py-1 text-left w-full">
+          <DonateUsButton text={"Donate Us"} />
         </div>
       </div>
       <div className="hidden md:w-[25%] lg:w-1/2"></div>

@@ -1,5 +1,6 @@
 import BannerWithhadith from "@/components/BannersComp/BannerWithhadith";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
+import DonateUsButton from "@/components/DonateUsButton";
 import Link from "next/link";
 import React from "react";
 
@@ -52,7 +53,10 @@ const Sadaqah = () => {
           thought by which he slips into the fire a distance further than
           that between east and west.`}
       /> */}
-      <CommonBanner page={"Sadaqah"} image={"/zakaat-and-sadaqah/sadaqah.webp"} />
+      <CommonBanner
+        page={"Sadaqah"}
+        image={"/zakaat-and-sadaqah/sadaqah.webp"}
+      />
       <div className="p-5 py-10 md:p-10 lg:p-20 flex flex-col lg:flex-row gap-10 w-full">
         <div className="w-full lg:w-[60%] space-y-5 my-auto">
           <div className="space-y-2">
@@ -62,7 +66,8 @@ const Sadaqah = () => {
             <p>
               "Charity does not decrease wealth, no one forgives another except
               that Allah increases his honor, and no one humbles himself for the
-              sake of Allah except that Allah raises his status." <span className="text-aqua">(Sahih Muslim)</span>
+              sake of Allah except that Allah raises his status."{" "}
+              <span className="text-aqua">(Sahih Muslim)</span>
             </p>
           </div>
           <div className="space-y-2">
@@ -73,15 +78,12 @@ const Sadaqah = () => {
               "The example of those who spend their wealth in the Way of Allah
               is like that of a grain of corn that sprouts seven ears and in
               every ear there are a hundred grains. Thus Allah multiplies the
-              action of whomsoever He wills." <span className="text-aqua">(Quran, 2:261)</span>
+              action of whomsoever He wills."{" "}
+              <span className="text-aqua">(Quran, 2:261)</span>
             </p>
           </div>
           <div className="">
-            <Link href={"/about-us"}>
-              <button class="px-5 md:px-8 py-2 md:py-3 bg-gradient-to-r from-aqua to-[#05774c] text-lg md:text-xl text-white font-medium rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                Donate Us
-              </button>
-            </Link>
+            <DonateUsButton text={"Donate Us"} />
           </div>
         </div>
         <div className="w-full lg:w-[40%]">

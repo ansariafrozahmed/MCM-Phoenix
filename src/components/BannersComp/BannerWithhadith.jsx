@@ -2,6 +2,7 @@ import Zakat from "@/app/zakat/page";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import DonateUsButton from "../DonateUsButton";
 
 const BannerWithhadith = ({ page, hadith, image }) => {
   return (
@@ -9,7 +10,7 @@ const BannerWithhadith = ({ page, hadith, image }) => {
       className=" bg-bottom h-auto text-white px-5 md:px-10 lg:px-16 py-14 md:py-24 object-cover relative"
       style={{
         backgroundImage: `url(${image})`,
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -34,12 +35,8 @@ const BannerWithhadith = ({ page, hadith, image }) => {
               <br />
               {hadith}
             </h2>
-            <div className="py-1 text-left md:text-center w-full">
-              <Link href={"/about-us"}>
-                <button class="px-5 md:px-8 py-2 md:py-3 bg-gradient-to-r from-aqua to-[#05774c] text-lg md:text-xl text-white font-medium rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                  Donate Us
-                </button>
-              </Link>
+            <div className="py-1 md:text-center w-full">
+              <DonateUsButton text={"Donate Us"} />
             </div>
           </div>
         </div>

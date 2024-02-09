@@ -1,5 +1,6 @@
 "use client";
 import CommonBanner from "@/components/BannersComp/CommonBanner";
+import DonateUsButton from "@/components/DonateUsButton";
 import Slider from "@/components/Slider/Slider";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -68,12 +69,15 @@ const MCMDonation = () => {
         </h2>
       </div>
       <Slider data={dataa} />
-      <div className="text-center">
+      {/* <div className="text-center">
         <Link href={"/about-us"}>
           <button class="px-8 py-3 bg-gradient-to-r from-aqua to-[#05774c] text-white font-medium capitalize rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
             Sponsor A Musalla for $2000
           </button>
         </Link>
+      </div> */}
+      <div className="py-1 text-center w-full">
+        <DonateUsButton text={"Sponsor A Musalla for $2000"} />
       </div>
       {/* ------------------------------ */}
       <div className="px-5 py-12 md:p-10 lg:px-32 lg:py-16">
@@ -105,14 +109,31 @@ const MCMDonation = () => {
                 </p>
               </div>
               <div className="p-4 pt-0">
-                <Link href={"/"}>
+                {/* <Link href={"/"}>
                   <button
                     className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gradient-to-r from-aqua to-[#05774c] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                     type="button"
                   >
                     Donate Now
                   </button>
-                </Link>
+                </Link> */}
+                <form
+                  action="https://www.paypal.com/donate"
+                  method="post"
+                  target="_top"
+                >
+                  <input
+                    type="hidden"
+                    name="campaign_id"
+                    value="N7HTWXEEU6D9S"
+                  />
+                  <button
+                    className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gradient-to-r from-aqua to-[#05774c] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                    type="submit"
+                  >
+                    Donate Now
+                  </button>
+                </form>
               </div>
             </div>
           ))}
