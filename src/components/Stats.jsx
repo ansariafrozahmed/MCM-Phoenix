@@ -14,7 +14,7 @@ const Stats = () => {
           throw new Error("Failed to fetch stats");
         }
         const result = await res.json();
-        console.log(result, "RESULT");
+        // console.log(result, "RESULT");
         setStats(result);
       } catch (error) {
         console.error("Error fetching stats:", error);

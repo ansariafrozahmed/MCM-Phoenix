@@ -12,6 +12,7 @@ import CourseSlider from "../Course/CourseSlider";
 
 const CoursesForFemales = () => {
   const [femaleCourse, setFemaleCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +26,7 @@ const CoursesForFemales = () => {
         const result = await res.json();
         // console.log(result, "RESULT");
         setFemaleCourse(result);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching stats:", error);
       }
@@ -39,7 +41,7 @@ const CoursesForFemales = () => {
       <h2 className="text-3xl lg:text-4xl  text-left font-semibold text-gray-800">
         Courses For <span className="text-aqua">Adults (Females)</span>
       </h2>
-      <CourseSlider data={femaleCourse} />
+      <CourseSlider data={femaleCourse} loading={loading} />
       {/* <Cards data={data} /> */}
     </div>
   );

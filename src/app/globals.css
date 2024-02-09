@@ -83,3 +83,34 @@ p {
   text-align: center;
   transform: translateY(-50%);
 }
+
+/* CSS for Slideshow */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  animation: fade 4s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

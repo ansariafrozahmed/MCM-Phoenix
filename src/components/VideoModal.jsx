@@ -15,7 +15,7 @@ const VideoModal = ({ videoid }) => {
         videoId={videoid}
         onClose={() => setOpen(false)}
       />
-      <div className="bg-white p-2 transition-all ease-in-out hover:scale-105 h-14 w-14 flex items-center justify-center rounded-full absolute top-[50%] left-[50%] z-50 -translate-x-[50%] -translate-y-[50%] cursor-pointer">
+      <div className="bg-white  p-2 transition-all ease-in-out hover:scale-105 h-14 w-14 flex items-center justify-center rounded-full absolute top-[50%] left-[50%] z-50 -translate-x-[50%] -translate-y-[50%] cursor-pointer">
         <Play
           size={30}
           strokeWidth={3}

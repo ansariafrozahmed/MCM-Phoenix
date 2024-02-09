@@ -16,13 +16,13 @@ const Footer = () => {
 
   return (
     <>
-      <section className="md:flex p-5 border-t md:px-10 py-12 bg-gray-100">
+      <section className="lg:flex p-5 border-t md:px-10 py-12 bg-gray-100">
         {/* LEFT DIV */}
-        <div className="w-full md:w-[40%] mb-10">
+        <div className="w-full lg:w-[40%] mb-10">
           <div>
             {/* <h2 className="text-2xl font-medium">MCM Phoenix</h2> */}
             <img src="/logo.svg" className="h-[40px]" alt="" />
-            <p className="text-gray-700 text-[0.9rem] mt-2 md:pr-20">
+            <p className="text-gray-700 text-left text-[0.9rem] mt-2 md:pr-20">
               To meet the growing needs of the Muslim community in Phoenix by
               building a new mosque that is accessible, can accommodate
               approximately 1,000 worshipers, and offers supporting services
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         {/* RIGHT DIV */}
-        <div className="w-full md:w-[60%] grid grid-cols-2  md:grid-cols-3 gap-5">
+        <div className="w-full lg:w-[60%] grid grid-cols-2  md:grid-cols-3 gap-5">
           <div>
             <h2 className="text-base md:text-xl font-medium text-gray-800">
               Donation & Pledge

@@ -1,4 +1,5 @@
 import HomeHero from "@/components/BannersComp/HomeHero";
+import NewHomeHero from "@/components/BannersComp/NewHomeHero";
 import BlogSection from "@/components/BlogsComp/BlogSection";
 import NewMasjid from "@/components/Old&NewMasjid/NewMasjid";
 import OldMasjid from "@/components/Old&NewMasjid/OldMasjid";
@@ -12,7 +13,8 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <HomeHero />
+      <NewHomeHero />
+      {/* <HomeHero /> */}
       <OldMasjid />
       <NewMasjid />
       <UnderConstructionHome />
@@ -25,4 +27,5 @@ const Home = () => {
   );
 };
 
+export const domain = "http://localhost:3000/";
 export default Home;

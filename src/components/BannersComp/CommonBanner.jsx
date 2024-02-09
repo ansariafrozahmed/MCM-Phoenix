@@ -5,10 +5,10 @@ import React from "react";
 const CommonBanner = ({ page, image }) => {
   return (
     <div
-      className=" bg-bottom h-auto text-white px-5 md:px-10 lg:px-16 py-14 md:py-32 object-cover relative"
+      className=" bg-bottom h-auto text-white px-5 md:px-10 lg:px-16 py-14 md:py-24 lg:py-32 relative"
       style={{
         backgroundImage: `url(${image})`,
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

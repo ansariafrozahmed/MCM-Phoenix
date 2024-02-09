@@ -12,6 +12,7 @@ import CourseSlider from "../Course/CourseSlider";
 
 const CoursesForChildren = () => {
   const [childrenCourse, setChildrenCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchChildrenCourse = async () => {
@@ -25,6 +26,7 @@ const CoursesForChildren = () => {
         const result = await res.json();
         // console.log(result, "RESULT");
         setChildrenCourse(result);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching stats:", error);
       }
@@ -41,7 +43,7 @@ const CoursesForChildren = () => {
       </h2>
       {/* <CourseSlider /> */}
 
-      <CourseSlider data={childrenCourse} />
+      <CourseSlider data={childrenCourse} loading={loading} />
       {/* <Cards data={data} /> */}
     </div>
   );
