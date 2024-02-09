@@ -16,8 +16,8 @@ const DonateUsSection = () => {
       <div className="w-full md:w-[75%] lg:w-1/2 space-y-3 lg:space-y-5">
         {/* <img src="/bismillah-white.webp" className="" alt="Bismillah" /> */}
         <h2 className="text-2xl md:text-4xl font-bold leading-none uppercase">
-          <span className="text-aqua">Would Your Like To</span>
-          <br />
+          <span className="text-aqua">Would You Like To </span>
+          {/* <br /> */}
           Support Students to enroll in ?
         </h2>
         <p className="text-[0.95rem] font-normal">
