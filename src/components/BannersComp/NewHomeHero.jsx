@@ -20,7 +20,7 @@ const NewHomeHero = () => {
           throw new Error("Failed to fetch stats");
         }
         const result = await res.json();
-        // console.log(result, "RESULT");
+        console.log(result, "RESULT");
         setBanner(result);
         setLoading(false);
       } catch (error) {
@@ -54,31 +54,14 @@ const NewHomeHero = () => {
         )}
         className="relative h-[90svh] md:h-[60svh] lg:h-[88svh]"
       >
-        {loading ? (
-          <>
-            {Array(3)
-              .fill()
-              .map((_, index) => (
-                <img
-                  key={index}
-                  src="/banner/homeBanner.webp"
-                  alt="MCM Phoenix Banner"
-                  className="h-full w-full object-cover"
-                />
-              ))}
-          </>
-        ) : (
-          <>
-            {banner?.map((item, index) => (
-              <img
-                key={index}
-                src={item?.acf?.image}
-                alt="MCM Phoenix Banner"
-                className="h-full w-full object-cover"
-              />
-            ))}
-          </>
-        )}
+        {banner?.map((item, index) => (
+          <img
+            key={index}
+            src={item?.acf?.image}
+            alt="MCM Phoenix Banner"
+            className="h-full w-full object-cover"
+          />
+        ))}
       </Carousel>
 
       <div className="absolute inset-0 bg-black/50"></div>
