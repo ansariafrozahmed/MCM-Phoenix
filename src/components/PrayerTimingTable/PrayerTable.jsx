@@ -77,7 +77,7 @@ const PrayerTable = () => {
             <span>{item.asr}</span>
             <span>{item.maghrib}</span>
             <span>{item.isha}</span>
-            <span className="pl-3">N/A</span>
+            <span>12:30 PM</span>
           </div>
         ))}
         {iqamah?.map((item, index) => (
