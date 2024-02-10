@@ -9,10 +9,10 @@ export const send = async (name, email, phone, message) => {
       subject: "TESTTTT",
       body: `
         <div>
-          <h2>Name: ${name}</h2>
-          <h2>Email: ${email}</h2>
-          <h2>Phone: ${phone}</h2>
-          <h2>Message: ${message}</h2>
+          <h3>Name: ${name}</h3>
+          <h3>Email: ${email}</h3>
+          <h3>Phone: ${phone}</h3>
+          <h3>Message: ${message}</h3>
         </div>
       `,
     });

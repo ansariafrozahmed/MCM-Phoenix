@@ -36,8 +36,7 @@
 
 /* Antd Design */
 
-:where(.css-dev-only-do-not-override-1b0bdye).ant-progress.ant-progress-circle
-  .ant-progress-text {
+:where(.css-dev-only-do-not-override-1b0bdye).ant-progress.ant-progress-circle .ant-progress-text {
   position: absolute;
   inset-block-start: 50%;
   inset-inline-start: 0;
@@ -104,13 +103,20 @@ p {
   0% {
     opacity: 0;
   }
+
   25% {
     opacity: 1;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
+}
+
+.blogdescription img {
+  width: 100%;
 }
