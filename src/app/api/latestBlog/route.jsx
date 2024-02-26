@@ -1,7 +1,7 @@
 export async function GET(request) {
   try {
     const response = await fetch(
-      "https://demo-web.live/mcm/wp-json/wp/v2/posts"
+      "https://admin.mcmphoenix.us/wp-json/wp/v2/posts"
     );
 
     if (!response.ok) {

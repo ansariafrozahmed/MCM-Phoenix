@@ -4,7 +4,7 @@ import CourseSlider from "../Course/CourseSlider";
 
 // const fetchGentsCourse = async () => {
 //   const response = await fetch(
-//     "https://demo-web.live/mcm/wp-json/wp/v2/male-courses?acf_format=standard&_fields=title,acf"
+//     "https://admin.mcmphoenix.us/wp-json/wp/v2/male-courses?acf_format=standard&_fields=title,acf"
 //   );
 //   const result = await response.json();
 //   return result;
@@ -18,7 +18,7 @@ const CoursesForGents = () => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/male-courses?acf_format=standard&_fields=title,acf&per_page=30"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/male-courses?acf_format=standard&_fields=title,acf&per_page=30"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

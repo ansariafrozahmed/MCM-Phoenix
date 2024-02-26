@@ -11,7 +11,7 @@ const LatestBlogs = () => {
   useEffect(() => {
     const fetchGalleryData = async () => {
       const response = await fetch(
-        "https://demo-web.live/mcm/wp-json/wp/v2/posts"
+        "https://admin.mcmphoenix.us/wp-json/wp/v2/posts"
       );
       const result = await response.json();
       setLatestBlog(result);

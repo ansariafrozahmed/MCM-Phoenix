@@ -20,7 +20,7 @@ const BlogPage = () => {
     // setLoading(true);
     const fetchGalleryData = async () => {
       const response = await fetch(
-        `https://demo-web.live/mcm/wp-json/wp/v2/posts?slug=${slug}`
+        `https://admin.mcmphoenix.us/wp-json/wp/v2/posts?slug=${slug}`
       );
       const result = await response.json();
       // console.log(...result, "rtytuvbhijnokml");

@@ -8,7 +8,7 @@ const Stats = () => {
     const fetchStats = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/stats?acf_format=standard&_fields=acf,title"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/stats?acf_format=standard&_fields=acf,title"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

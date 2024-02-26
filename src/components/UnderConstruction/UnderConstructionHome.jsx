@@ -5,7 +5,7 @@ import { Progress } from "antd";
 
 // const fetchUnderConstructionData = async () => {
 //   const response = await fetch(
-//     "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
+//     "https://admin.mcmphoenix.us/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
 //   );
 //   const result = await response.json();
 //   return result;
@@ -13,7 +13,7 @@ import { Progress } from "antd";
 
 // const fetchProgressData = async () => {
 //   const response = await fetch(
-//     "https://demo-web.live/mcm/wp-json/wp/v2/facility?acf_format=standard&_fields=acf,title"
+//     "https://admin.mcmphoenix.us/wp-json/wp/v2/facility?acf_format=standard&_fields=acf,title"
 //   );
 //   const result = await response.json();
 //   return result;
@@ -30,7 +30,7 @@ const UnderConstructionHome = () => {
     const fetchUnderConstructionData = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=20"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=20"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");
@@ -45,7 +45,7 @@ const UnderConstructionHome = () => {
     const fetchProgressData = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/facility?per_page=10"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/facility?per_page=10"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

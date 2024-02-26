@@ -6,7 +6,7 @@ import VideoModal from "../VideoModal";
 
 // const fetchUnderConstructionData = async () => {
 //   const response = await fetch(
-//     "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
+//     "https://admin.mcmphoenix.us/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title"
 //   );
 //   const result = await response.json();
 //   return result;
@@ -20,7 +20,7 @@ const UnderProgress = () => {
     const fetchUnderConstructionGallery = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=30"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/under-construction?acf_format=standard&_fields=acf,title&per_page=30"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

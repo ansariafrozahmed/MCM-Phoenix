@@ -21,7 +21,7 @@ const NewMasjidSlider = () => {
   useEffect(() => {
     const fetchSldierData = async () => {
       const response = await fetch(
-        "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title"
+        "https://admin.mcmphoenix.us/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title"
       );
       const result = await response.json();
       // console.log(result);

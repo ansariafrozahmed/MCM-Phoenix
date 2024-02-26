@@ -12,7 +12,7 @@ const NewGallery = () => {
     const fetchOldGallery = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title&per_page=30"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/new-planned-masjid?acf_format=standard&_fields=acf,title&per_page=30"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

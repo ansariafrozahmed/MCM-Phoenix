@@ -14,7 +14,7 @@ const NewHomeHero = () => {
     const fetchbanner = async () => {
       try {
         const res = await fetch(
-          "https://demo-web.live/mcm/wp-json/wp/v2/home-page-slider?acf_format=standard&_fields=acf"
+          "https://admin.mcmphoenix.us/wp-json/wp/v2/home-page-slider?acf_format=standard&_fields=acf"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch stats");

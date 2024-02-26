@@ -4,7 +4,7 @@ async function fetchCartData(currentMonth) {
   try {
     if (!currentMonth) return;
 
-    const url = `https://demo-web.live/mcm/wp-json/wp/v2/${currentMonth}?acf_format=standard&_fields=acf`;
+    const url = `https://admin.mcmphoenix.us/wp-json/wp/v2/${currentMonth}?acf_format=standard&_fields=acf`;
 
     // Send the PUT request and await the response
     const response = await fetch(url);
